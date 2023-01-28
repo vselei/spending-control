@@ -165,7 +165,7 @@ header h1 {
   margin: 0 auto;
 }
 
-.budget-contaienr {
+.budget-container {
   margin-top: -5rem;
 
   display: flex;
@@ -197,8 +197,8 @@ header h1 {
   }
 }
 
-.form input[type='text'].nuevo-presupuesto,
-.form input[type='number'].nuevo-presupuesto {
+.form input[type='text'].new-budget,
+.form input[type='number'].new-budget {
   font-size: 2.8rem;
   text-align: center;
 }
@@ -328,23 +328,23 @@ main {
   margin-bottom: 1rem;
 }
 
-.spending-description .nombre-gasto {
+.spending-description .spending-name {
   color: var(--dark-gray);
   font-size: 2.4rem;
   font-weight: 700;
 }
 
-.spending-description .nombre-gasto:hover {
+.spending-description .spending-name:hover {
   cursor: pointer;
 }
 
-.spending-description .fecha-gasto {
+.spending-description .close-spending {
   font-size: 1.8rem;
   font-weight: 900;
   color: var(--dark-gray);
 }
 
-.spending-description .fecha-gasto span {
+.spending-description .close-spending span {
   font-weight: 400;
 }
 
