@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import Header from './components/Header';
+import SpendingList from './components/SpendingList';
 import Modal from './components/Modal';
 
 import { idGenerator } from './helpers';
@@ -27,6 +28,11 @@ const App = () => {
   const saveSpendings = spending => {
     spending.id = idGenerator();
     setSpendings([...spendings, spending]);
+    setAnimateModal(false);
+
+    setTimeout(() => {
+      setModal(false);
+    }, 500);
   };
 
   return (
@@ -38,13 +44,18 @@ const App = () => {
         setBudgetIsValid={setBudgetIsValid}
       />
       {budgetIsValid && (
-        <div className="new-spending">
-          <img
-            src={NewSpending}
-            alt="Ícone de adicionar gasto"
-            onClick={handleNewSpending}
-          />
-        </div>
+        <>
+          <main>
+            <SpendingList spendings={spendings} />
+          </main>
+          <div className="new-spending">
+            <img
+              src={NewSpending}
+              alt="Ícone de adicionar gasto"
+              onClick={handleNewSpending}
+            />
+          </div>
+        </>
       )}
       {modal && (
         <Modal
