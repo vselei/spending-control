@@ -9,7 +9,9 @@ import { idGenerator } from './helpers';
 import NewSpending from './img/new-spending.svg';
 
 const App = () => {
-  const [spendings, setSpendings] = useState([]);
+  const [spendings, setSpendings] = useState(
+    JSON.parse(localStorage.getItem('spendings')) ?? []
+  );
 
   const [budget, setBudget] = useState(
     Number(localStorage.getItem('budget')) ?? 0
@@ -34,6 +36,10 @@ const App = () => {
   useEffect(() => {
     localStorage.setItem('budget', budget ?? 0);
   }, [budget]);
+
+  useEffect(() => {
+    localStorage.setItem('spendings', JSON.stringify(spendings) ?? []);
+  }, [spendings]);
 
   useEffect(() => {
     const budgetLs = Number(localStorage.getItem('budget')) ?? 0;
