@@ -11,7 +11,9 @@ import NewSpending from './img/new-spending.svg';
 const App = () => {
   const [spendings, setSpendings] = useState([]);
 
-  const [budget, setBudget] = useState(0);
+  const [budget, setBudget] = useState(
+    Number(localStorage.getItem('budget')) ?? 0
+  );
   const [budgetIsValid, setBudgetIsValid] = useState(false);
 
   const [modal, setModal] = useState(false);
@@ -28,6 +30,18 @@ const App = () => {
       }, 500);
     }
   }, [spendingEdit]);
+
+  useEffect(() => {
+    localStorage.setItem('budget', budget ?? 0);
+  }, [budget]);
+
+  useEffect(() => {
+    const budgetLs = Number(localStorage.getItem('budget')) ?? 0;
+
+    if (budgetLs > 0) {
+      setBudgetIsValid(true);
+    }
+  }, []);
 
   const handleNewSpending = () => {
     setModal(true);

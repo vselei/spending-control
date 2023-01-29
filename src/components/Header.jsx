@@ -1,7 +1,13 @@
 import NewBudget from './NewBudget';
 import BudgetControl from './BudgetControl';
 
-const Header = ({ spendings, budget, setBudget, budgetIsValid, setBudgetIsValid }) => (
+const Header = ({
+  spendings,
+  budget,
+  setBudget,
+  budgetIsValid,
+  setBudgetIsValid
+}) => (
   <header>
     <h1>Planificador de Gastos</h1>
     {budgetIsValid ? (
