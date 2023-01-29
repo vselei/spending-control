@@ -1,3 +1,9 @@
+import {
+  SwipeableList,
+  SwipeableListItem
+} from '@sandstreamdev/react-swipeable-list';
+import '@sandstreamdev/react-swipeable-list/dist/styles.css';
+
 import { dateFormatter } from '../helpers';
 
 import EconomyIcon from '../img/economy-icon.svg';
@@ -21,20 +27,39 @@ const iconsBook = {
 const Spending = ({ spending }) => {
   const { category, name, qty, date, id } = spending;
 
+  const leadingAction = () => {
+    console.log('Editando...');
+  };
+
+  const traillingAction = () => {
+    console.log('Deletando...');
+  };
+
   return (
-    <div className="spending shadow">
-      <div className="spending-content">
-        <img src={iconsBook[spending.category]} alt="Ícone de despesa" />
-        <div className="spending-description">
-          <p className="category">{category}</p>
-          <p className="spending-name">{name}</p>
-          <p className="spending-date">
-            Adicionado em: <span>{dateFormatter(date)}</span>
-          </p>
+    <SwipeableList>
+      <SwipeableListItem
+        swipeLeft={{
+          action: traillingAction
+        }}
+        swipeRight={{
+          action: leadingAction
+        }}
+      >
+        <div className="spending shadow">
+          <div className="spending-content">
+            <img src={iconsBook[spending.category]} alt="Ícone de despesa" />
+            <div className="spending-description">
+              <p className="category">{category}</p>
+              <p className="spending-name">{name}</p>
+              <p className="spending-date">
+                Adicionado em: <span>{dateFormatter(date)}</span>
+              </p>
+            </div>
+          </div>
+          <p className="spending-qty">${qty}</p>
         </div>
-      </div>
-      <p className="spending-qty">${qty}</p>
-    </div>
+      </SwipeableListItem>
+    </SwipeableList>
   );
 };
 
