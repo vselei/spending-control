@@ -45,6 +45,7 @@ const App = () => {
         s.id === spending.id ? spending : s
       );
       setSpendings(updatedSpendings);
+      setSpendingEdit({});
     } else {
       // Nova Despesa
       spending.id = idGenerator();
@@ -96,6 +97,7 @@ const App = () => {
           animateModal={animateModal}
           setAnimateModal={setAnimateModal}
           saveSpendings={saveSpendings}
+          setSpendingEdit={setSpendingEdit}
           spendingEdit={spendingEdit}
         />
       )}
