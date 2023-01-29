@@ -58,6 +58,11 @@ const App = () => {
     }, 500);
   };
 
+  const deleteSpending = id => {
+    const updatedSpendings = spendings.filter(s => s.id !== id);
+    setSpendings(updatedSpendings);
+  };
+
   return (
     <div className={modal ? 'poster' : ''}>
       <Header
@@ -73,6 +78,7 @@ const App = () => {
             <SpendingList
               spendings={spendings}
               setSpendingEdit={setSpendingEdit}
+              deleteSpending={deleteSpending}
             />
           </main>
           <div className="new-spending">

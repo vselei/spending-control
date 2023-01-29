@@ -83,7 +83,7 @@ const Modal = ({
           />
         </div>
         <div className="field">
-          <label htmlFor="filter">Quantidade</label>
+          <label htmlFor="filter">Categoria</label>
           <select
             id="filter"
             value={category}

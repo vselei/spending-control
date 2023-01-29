@@ -24,7 +24,7 @@ const iconsBook = {
   subscriptions: SubscriptionsIcon
 };
 
-const Spending = ({ spending, setSpendingEdit }) => {
+const Spending = ({ spending, setSpendingEdit, deleteSpending }) => {
   const { category, name, qty, date, id } = spending;
 
   return (
@@ -40,7 +40,7 @@ const Spending = ({ spending, setSpendingEdit }) => {
           content: (
             <div className="swipe-action swipe-action__trailing">Deletar</div>
           ),
-          action: () => console.log('deletar')
+          action: () => deleteSpending(id)
         }}
       >
         <div className="spending shadow">
