@@ -1,6 +1,10 @@
 import { useState } from 'react';
+
 import Header from './components/Header';
 import Modal from './components/Modal';
+
+import { idGenerator } from './helpers';
+
 import NewSpending from './img/new-spending.svg';
 
 const App = () => {
@@ -21,7 +25,8 @@ const App = () => {
   };
 
   const saveSpendings = spending => {
-    console.log(spending);
+    spending.id = idGenerator();
+    setSpendings([...spendings, spending]);
   };
 
   return (
