@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import Header from './components/Header';
 import SpendingList from './components/SpendingList';
@@ -10,16 +10,28 @@ import NewSpending from './img/new-spending.svg';
 
 const App = () => {
   const [spendings, setSpendings] = useState([]);
-  
+
   const [budget, setBudget] = useState(0);
   const [budgetIsValid, setBudgetIsValid] = useState(false);
 
   const [modal, setModal] = useState(false);
   const [animateModal, setAnimateModal] = useState(false);
 
+  const [spendingEdit, setSpendingEdit] = useState({});
+
+  useEffect(() => {
+    if (Object.keys(spendingEdit).length > 0) {
+      setModal(true);
+
+      setTimeout(() => {
+        setAnimateModal(true);
+      }, 500);
+    }
+  }, [spendingEdit]);
 
   const handleNewSpending = () => {
     setModal(true);
+    setSpendingEdit({});
 
     setTimeout(() => {
       setAnimateModal(true);
@@ -27,9 +39,18 @@ const App = () => {
   };
 
   const saveSpendings = spending => {
-    spending.id = idGenerator();
-    spending.date = Date.now();
-    setSpendings([...spendings, spending]);
+    if (spending.id) {
+      // Atualizar
+      const updatedSpendings = spendings.map(s =>
+        s.id === spending.id ? spending : s
+      );
+      setSpendings(updatedSpendings);
+    } else {
+      // Nova Despesa
+      spending.id = idGenerator();
+      spending.date = Date.now();
+      setSpendings([...spendings, spending]);
+    }
     setAnimateModal(false);
 
     setTimeout(() => {
@@ -49,7 +70,10 @@ const App = () => {
       {budgetIsValid && (
         <>
           <main>
-            <SpendingList spendings={spendings} />
+            <SpendingList
+              spendings={spendings}
+              setSpendingEdit={setSpendingEdit}
+            />
           </main>
           <div className="new-spending">
             <img
@@ -66,6 +90,7 @@ const App = () => {
           animateModal={animateModal}
           setAnimateModal={setAnimateModal}
           saveSpendings={saveSpendings}
+          spendingEdit={spendingEdit}
         />
       )}
     </div>

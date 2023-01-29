@@ -24,7 +24,7 @@ const iconsBook = {
   subscriptions: SubscriptionsIcon
 };
 
-const Spending = ({ spending }) => {
+const Spending = ({ spending, setSpendingEdit }) => {
   const { category, name, qty, date, id } = spending;
 
   return (
@@ -34,7 +34,7 @@ const Spending = ({ spending }) => {
           content: (
             <div className="swipe-action swipe-action__leading">Editar</div>
           ),
-          action: () => console.log('editar')
+          action: () => setSpendingEdit(spending)
         }}
         swipeLeft={{
           content: (
@@ -45,7 +45,11 @@ const Spending = ({ spending }) => {
       >
         <div className="spending shadow">
           <div className="spending-content">
-            <img draggable="false" src={iconsBook[spending.category]} alt="Ícone de despesa" />
+            <img
+              draggable="false"
+              src={iconsBook[spending.category]}
+              alt="Ícone de despesa"
+            />
             <div className="spending-description">
               <p className="category">{category}</p>
               <p className="spending-name">{name}</p>
