@@ -27,27 +27,25 @@ const iconsBook = {
 const Spending = ({ spending }) => {
   const { category, name, qty, date, id } = spending;
 
-  const leadingAction = () => {
-    console.log('Editando...');
-  };
-
-  const traillingAction = () => {
-    console.log('Deletando...');
-  };
-
   return (
     <SwipeableList>
       <SwipeableListItem
-        swipeLeft={{
-          action: traillingAction
-        }}
         swipeRight={{
-          action: leadingAction
+          content: (
+            <div className="swipe-action swipe-action__leading">Editar</div>
+          ),
+          action: () => console.log('editar')
+        }}
+        swipeLeft={{
+          content: (
+            <div className="swipe-action swipe-action__trailing">Deletar</div>
+          ),
+          action: () => console.log('deletar')
         }}
       >
         <div className="spending shadow">
           <div className="spending-content">
-            <img src={iconsBook[spending.category]} alt="Ícone de despesa" />
+            <img draggable="false" src={iconsBook[spending.category]} alt="Ícone de despesa" />
             <div className="spending-description">
               <p className="category">{category}</p>
               <p className="spending-name">{name}</p>
