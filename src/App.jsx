@@ -27,6 +27,7 @@ const App = () => {
 
   const saveSpendings = spending => {
     spending.id = idGenerator();
+    spending.date = Date.now();
     setSpendings([...spendings, spending]);
     setAnimateModal(false);
 
@@ -36,7 +37,7 @@ const App = () => {
   };
 
   return (
-    <>
+    <div className={modal && 'poster'}>
       <Header
         budget={budget}
         setBudget={setBudget}
@@ -65,7 +66,7 @@ const App = () => {
           saveSpendings={saveSpendings}
         />
       )}
-    </>
+    </div>
   );
 };
 

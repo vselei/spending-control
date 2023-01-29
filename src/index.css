@@ -297,6 +297,7 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   gap: 2rem;
   margin-bottom: 2rem;
   width: 100%;
@@ -311,6 +312,7 @@ main {
 .spending-content {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 2rem;
 }
 
@@ -322,7 +324,7 @@ main {
   margin: 0 0 0.3rem 0;
 }
 
-.spending-description .categoria {
+.spending-description .category {
   color: var(--gray);
   font-size: 1.6rem;
   font-weight: 900;
@@ -343,13 +345,13 @@ main {
   cursor: pointer;
 }
 
-.spending-description .close-spending {
+.spending-description .spending-date {
   font-size: 1.8rem;
   font-weight: 900;
   color: var(--dark-gray);
 }
 
-.spending-description .close-spending span {
+.spending-description .spending-date span {
   font-weight: 400;
 }
 
