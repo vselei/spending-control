@@ -30,7 +30,7 @@ html {
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: 3rem;
 }
 
 h2 {
@@ -66,6 +66,10 @@ header h1 {
 }
 
 @media (min-width: 768px) {
+  h1 {
+    font-size: 4rem;
+  }
+
   .form {
     padding: 5rem 0;
     width: 60rem;
@@ -199,6 +203,7 @@ header h1 {
 
 .form input[type='text'].new-budget,
 .form input[type='number'].new-budget {
+  width: 100%;
   font-size: 2.8rem;
   text-align: center;
 }
@@ -376,6 +381,7 @@ main {
   top: 3rem;
   width: 3rem;
   height: 3rem;
+  cursor: pointer;
 }
 
 .modal .close-modal img {
