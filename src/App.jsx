@@ -100,14 +100,15 @@ const App = () => {
     <div className={modal ? 'poster' : ''}>
       <Header
         spendings={spendings}
+        setSpendings={setSpendings}
         budget={budget}
         setBudget={setBudget}
         budgetIsValid={budgetIsValid}
         setBudgetIsValid={setBudgetIsValid}
       />
-      <Filter filter={filter} setFilter={setFilter} />
       {budgetIsValid && (
         <>
+          <Filter filter={filter} setFilter={setFilter} />
           <main>
             <SpendingList
               spendings={spendings}
