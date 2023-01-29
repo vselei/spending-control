@@ -275,9 +275,15 @@ main {
   padding-top: 10rem;
 }
 
+.filter {
+  position: relative;
+  top: 100px;
+}
+
 .filter .field {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 2rem;
 }
 .filter label {
