@@ -10,12 +10,18 @@ const App = () => {
   const [modal, setModal] = useState(false);
   const [animateModal, setAnimateModal] = useState(false);
 
+  const [spendings, setSpendings] = useState([]);
+
   const handleNewSpending = () => {
     setModal(true);
 
     setTimeout(() => {
       setAnimateModal(true);
     }, 500);
+  };
+
+  const saveSpendings = spending => {
+    console.log(spending);
   };
 
   return (
@@ -35,7 +41,14 @@ const App = () => {
           />
         </div>
       )}
-      {modal && <Modal setModal={setModal} animateModal={animateModal} setAnimateModal={setAnimateModal} />}
+      {modal && (
+        <Modal
+          setModal={setModal}
+          animateModal={animateModal}
+          setAnimateModal={setAnimateModal}
+          saveSpendings={saveSpendings}
+        />
+      )}
     </>
   );
 };
