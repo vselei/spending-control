@@ -8,7 +8,7 @@ import { dateFormatter } from '../helpers';
 
 import EconomyIcon from '../img/economy-icon.svg';
 import FoodIcon from '../img/food-icon.svg';
-import HealthIcon from '../img/Health-icon.svg';
+import HealthIcon from '../img/health-icon.svg';
 import HouseIcon from '../img/house-icon.svg';
 import LoungeIcon from '../img/lounge-icon.svg';
 import MiscellaneousIcon from '../img/miscellaneous-icon.svg';
