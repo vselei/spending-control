@@ -373,6 +373,7 @@ main {
   left: 0;
   right: 0;
   bottom: 0;
+  width: 100%;
 }
 
 .modal .close-modal {
@@ -382,6 +383,7 @@ main {
   width: 3rem;
   height: 3rem;
   cursor: pointer;
+  z-index: 10000;
 }
 
 .modal .close-modal img {
@@ -390,7 +392,6 @@ main {
 
 .modal .form {
   max-width: 80rem;
-  width: 40rem;
   transition-property: all;
   transition-duration: 300ms;
   transition-timing-function: ease-in;
