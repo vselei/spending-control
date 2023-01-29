@@ -9,13 +9,14 @@ import { idGenerator } from './helpers';
 import NewSpending from './img/new-spending.svg';
 
 const App = () => {
+  const [spendings, setSpendings] = useState([]);
+  
   const [budget, setBudget] = useState(0);
   const [budgetIsValid, setBudgetIsValid] = useState(false);
 
   const [modal, setModal] = useState(false);
   const [animateModal, setAnimateModal] = useState(false);
 
-  const [spendings, setSpendings] = useState([]);
 
   const handleNewSpending = () => {
     setModal(true);
@@ -37,8 +38,9 @@ const App = () => {
   };
 
   return (
-    <div className={modal && 'poster'}>
+    <div className={modal ? 'poster' : ''}>
       <Header
+        spendings={spendings}
         budget={budget}
         setBudget={setBudget}
         budgetIsValid={budgetIsValid}
